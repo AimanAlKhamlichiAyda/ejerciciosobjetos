@@ -198,7 +198,7 @@ const personAccount = {
 };
 console.log(personAccount);
 
-//2.
+//2.Preguntas:2, 3 y 4 se basan en los siguientes dos arrays: users y products ()
 const userrs = [
     {
         _id: "ab12ex",
@@ -286,11 +286,70 @@ console.log(signUp(userrs, products));
 
 //b.Crear una función llamada signIn que permita al usuario iniciar sesión en la aplicación
 
+function signIn(username, password) {
 
+    if (username === 'usuario' && password === 'contraseña') {
+        console.log('Inicio de sesión exitoso');
 
+    } else {
+        console.log('Nombre de usuario o contraseña incorrectos');
 
+    }
+}
+console.log(signIn(username, password));
 
+//3.El array de productos tiene tres elementos y cada uno de ellos tiene seis propiedades. a. Crear una función llamada rateProduct que califique el producto b. Crear una función llamada averageRating que calcule la valoración media de un producto
 
+let productss = [
+    { id: 1, name: 'Producto 1', price: 10.99, rating: [], totalRating: 0, averageRating: 0 },
+    { id: 2, name: 'Producto 2', price: 24.99, rating: [], totalRating: 0, averageRating: 0 },
+    { id: 3, name: 'Producto 3', price: 49.99, rating: [], totalRating: 0, averageRating: 0 }
+];
+function rateProduct(productId, rating) {
+    let product = products.find(product => product.id === productId);
+    if (product) {
+        product.rating.push(rating);
+        product.totalRating += rating;
+        product.averageRating = product.totalRating / product.rating.length;
+        console.log(`Producto ${product.id} calificado con éxito`);
+    } else {
+        console.log(`Producto ${productId} no encontrado`);
+    }
+}
+function averageRating(productId) {
+    let product = products.find(product => product.id === productId);
+    if (product) {
+        console.log(`La valoración media del producto ${product.id} es ${product.averageRating}`);
+    } else {
+        console.log(`Producto ${productId} no encontrado`);
+    }
+}
+
+//4.Crear una función llamada likeProduct. Esta función ayuda a dar un like al producto. Si no le gusta eliminar el like y si le gusta darle like
+
+function likeProduct(product, liked) {
+    if (liked) {
+
+        if (product.likes.includes(usee)) {
+            const index = product.likes.indexOf(usee);
+            product.likes.splice(index, 1);
+            console.log(`Dislike al producto "${product.name}"`);
+        } else {
+
+            product.likes.push(user);
+            console.log(`Like al producto "${product.name}"`);
+        }
+    } else {
+
+        if (product.likes.includes(user)) {
+            const index = product.likes.indexOf(usee);
+            product.likes.splice(index, 1);
+            console.log(`Dislike al producto "${product.name}"`);
+        } else {
+            console.log(`No te gusta el producto "${product.name}"`);
+        }
+    }
+}
 
 
 
